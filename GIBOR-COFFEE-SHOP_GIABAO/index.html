@@ -1,0 +1,249 @@
+<!-- 
+
+========================================================================================
+
+                                    CODE BỞI TRẦN GIA BẢO
+
+========================================================================================
+
+-->
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GIBOR COFFEE</title>
+
+    <!-- THEME CHÍNH DÙNG CHUNG-->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Font -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&family=Mrs+Saint+Delafield&display=swap"
+    />
+
+    <!-- Logo -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- THEME TRANG CHỦ -->
+    <link rel="stylesheet" href="css/home.css" />
+    <!-- MOBILE RESPONSIVE -->
+    <link rel="stylesheet" href="css/mobile.css" />
+  </head>
+
+  <body>
+    <!-- HEADER DÙNG CHUNG -->
+    <header class="header">
+      <div class="header-container">
+        <!-- LOGO -->
+        <a href="index.html" class="logo">
+          <img src="images/logo/logo.jpg" alt="GIBOR Coffee" />
+          <span>GIBOR COFFEE</span>
+        </a>
+
+        <!-- NAV -->
+        <nav class="nav">
+          <ul class="nav-links">
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="about.html">Giới thiệu</a></li>
+            <li><a href="contact.html">Liên hệ</a></li>
+          </ul>
+        </nav>
+
+        <!-- AUTH + CART -->
+        <div class="header-actions">
+          <a href="login.html" class="icon-btn" id="authLink">Đăng nhập</a>
+          <a href="cart.html" class="icon-btn cart">
+            🛒
+            <span>Giỏ hàng</span>
+            <span>0</span>
+          </a>
+          <button class="theme-toggle" id="themeToggle">🌙</button>
+          <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Loading Screen -->
+      <div class="logo" id="preloader">
+        <div class="loader-icon">
+          <img src="images/logo/logo.jpg" alt="GIBOR Coffee" />
+        </div>
+        <p
+          style="
+            color: white;
+            margin-top: 20px;
+            letter-spacing: 5px;
+            font-weight: 600;
+          "
+        >
+          GIBOR COFFEE
+        </p>
+      </div>
+
+      <div>
+        <section class="hero">
+          <div class="hero-content">
+            <h1>GIBOR COFFEE</h1>
+            <p>Thưởng thức hương vị Cà Phê nguyên bản.</p>
+            <div class="hero-btns">
+              <a href="menu.html" class="btn btn-primary">Đặt hàng ngay</a>
+              <a href="about.html" class="btn btn-secondary">Ghé thăm quán</a>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="intro">
+        <h2>Hơn cả một tách cà phê</h2>
+        <p>
+          Tại GIBOR, chúng tôi tin rằng cà phê ngon nhất là khi nó giữ được sự
+          mộc mạc của đất trời và sự tử tế của người pha chế. Không hương liệu,
+          không tạp chất - chỉ có sự nguyên bản từ nông trại đến tách cà phê
+          trên tay bạn.
+        </p>
+        <div
+          class="featured-icons"
+          style="
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+          "
+        >
+          <div>
+            <i
+              class="fas fa-leaf"
+              style="font-size: 2rem; color: var(--accent)"
+            ></i>
+            <p>100% Rang Mộc</p>
+          </div>
+          <div>
+            <i
+              class="fas fa-heart"
+              style="font-size: 2rem; color: var(--accent)"
+            ></i>
+            <p>Pha Chế Tận Tâm</p>
+          </div>
+          <div>
+            <i
+              class="fas fa-clock"
+              style="font-size: 2rem; color: var(--accent)"
+            ></i>
+            <p>Mở Cửa 07:00 - 22:00</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Advertising Promo Banner -->
+      <section class="promo-banner">
+        <div class="promo-content">
+          <span class="promo-tag">Ưu đãi giới hạn</span>
+          <h2>
+            Mua 2 Tặng 1 <br />
+            <span style="color: var(--accent)">Bạc Xỉu GIBOR</span>
+          </h2>
+          <p>
+            Dành riêng cho khách hàng trải nghiệm tại quán vào khung giờ sáng từ
+            7:00 - 10:00 hàng ngày. Đừng bỏ lỡ hương vị nguyên bản!
+          </p>
+          <a href="menu.html" class="btn-cta">Hãy thưởng thức ngay</a>
+        </div>
+        <div class="promo-image"></div>
+      </section>
+    </main>
+
+    <!-- FOOTER DÙNG CHUNG -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-col">
+          <h3 class="footer-logo">GIBOR COFFEE</h3>
+          <ul>
+            <li>
+              <p>
+                Khơi nguồn cảm hứng từ những hạt cà phê rang xay nguyên chất.
+                Chúng tôi mang đến trải nghiệm hương vị mộc mạc và tinh tế nhất.
+              </p>
+            </li>
+            <li>
+              <img src="/images/logo/logoHuit.png" alt="logo-huit" height="60" />
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Khám Phá</h4>
+          <ul>
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="about.html">Giới thiệu</a></li>
+            <li><a href="contact.html">Liên hệ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Liên Hệ</h4>
+          <ul>
+            <li>
+              <p>📍 140 Lê Trọng Tấn, Tân Phú, TP.HCM</p>
+            </li>
+            <li>
+              <p>📞 0909 999 999</p>
+            </li>
+          </ul>
+
+          <h4 style="margin-top: 25px">Theo Dõi GIBOR</h4>
+          <div class="social-links">
+            <a href="#" class="btn btn-secondary">Facebook</a>
+            <a href="#" class="btn btn-secondary">TikTok</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Vị Trí</h4>
+          <div class="google-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31352.538163214747!2d106.5926170349121!3d10.806159823201295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752be27d8b4f4d%3A0x92dcba2950430867!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBUaMawxqFuZyBUUC4gSOG7kyBDaMOtIE1pbmggKEhVSVQp!5e0!3m2!1svi!2s!4v1770452982001!5m2!1svi!2s"
+              width="100%"
+              height="150"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 GIBOR COFFEE. Designed by Team 3 Bảo & Anh.</p>
+      </div>
+    </footer>
+
+    <!-- Firebase SDK cho xác thực Google -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+
+    <!-- Phần JS CHUNG -->
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/mobile.js"></script>
+  </body>
+</html>
+<!-- 
+
+========================================================================================
+
+                                KẾT THÚC CODE BỞI TRẦN GIA BẢO
+
+========================================================================================
+
+-->

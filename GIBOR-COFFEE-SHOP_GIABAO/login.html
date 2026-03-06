@@ -1,0 +1,265 @@
+<!-- 
+  ========================================================================================
+                              CODE BỞI Nguyễn Thế Anh
+  ========================================================================================
+-->
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng Nhập - GIBOR COFFEE SHOP</title>
+
+    <!-- CSS CHUNG & RIÊNG CHO TRANG LOGIN -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/login.css" />
+    <!-- MOBILE RESPONSIVE -->
+    <link rel="stylesheet" href="css/mobile.css" />
+
+    <!-- FONT CHỮ DÙNG CHUNG -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&family=Mrs+Saint+Delafield&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ICON FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- HEADER DÙNG CHUNG -->
+    <header class="header">
+      <div class="header-container">
+        <!-- LOGO -->
+        <a href="index.html" class="logo">
+          <img src="images/logo/logo.jpg" alt="GIBOR Coffee" />
+          <span>GIBOR COFFEE</span>
+        </a>
+
+        <!-- NAV -->
+        <nav class="nav">
+          <ul class="nav-links">
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="about.html">Giới thiệu</a></li>
+            <li><a href="contact.html">Liên hệ</a></li>
+          </ul>
+        </nav>
+
+        <!-- AUTH + CART -->
+        <div class="header-actions">
+          <a href="cart.html" class="icon-btn cart">
+            🛒
+            <span>Giỏ hàng</span>
+            <span>0</span>
+          </a>
+          <button class="theme-toggle" id="themeToggle">🌙</button>
+          <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </header>
+
+    <!-- ==================== NỘI DUNG TRANG ĐĂNG NHẬP ==================== -->
+    <main class="login-page">
+      <!-- Trần Gia Bảo bắt đầu chỉnh sửa -->
+      <!-- Loading Screen -->
+      <div class="logo" id="preloader">
+        <div class="loader-icon">
+          <img src="images/logo/logo.jpg" alt="GIBOR Coffee" />
+        </div>
+        <p
+          style="
+            color: white;
+            margin-top: 20px;
+            letter-spacing: 5px;
+            font-weight: 600;
+          "
+        >
+          GIBOR COFFEE
+        </p>
+      </div>
+      <!-- Trần Gia Bảo kết thúc chỉnh sửa -->
+
+      <div class="login-container">
+        <!-- ICON CÀ PHÊ TRANG TRÍ -->
+        <div class="form-icon">
+          <i class="fas fa-mug-hot"></i>
+        </div>
+
+        <!-- TIÊU ĐỀ -->
+        <div class="form-top">
+          <h1>Chào Mừng Trở Lại</h1>
+          <p class="form-subtitle">
+            Đăng nhập để tiếp tục trải nghiệm hương vị cà phê tuyệt vời
+          </p>
+        </div>
+
+        <!-- FORM ĐĂNG NHẬP -->
+        <form class="form-box" id="loginForm">
+          <!-- Ô nhập Email -->
+          <div class="input-group">
+            <i class="fas fa-envelope input-icon"></i>
+            <input
+              id="loginEmail"
+              type="email"
+              class="input-field"
+              placeholder="Nhập địa chỉ email"
+              autocomplete="email"
+              required
+            />
+          </div>
+
+          <!-- Ô nhập Mật khẩu -->
+          <div class="input-group">
+            <i class="fas fa-lock input-icon"></i>
+            <input
+              id="loginPassword"
+              type="password"
+              class="input-field"
+              placeholder="Nhập mật khẩu"
+              autocomplete="current-password"
+              required
+            />
+            <!-- Nút ẩn/hiện mật khẩu -->
+            <button
+              type="button"
+              class="toggle-password"
+              aria-label="Hiện mật khẩu"
+            >
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+
+          <!-- Quên mật khẩu -->
+          <div class="form-options">
+            <a href="#" id="forgotPasswordLink" class="forgot-password"
+              >Quên mật khẩu?</a
+            >
+          </div>
+
+          <!-- Nút đăng nhập -->
+          <button type="submit" class="form-button-submit">
+            <i class="fas fa-sign-in-alt"></i> Đăng Nhập
+          </button>
+        </form>
+
+        <!-- ĐƯỜNG CHIA CÁCH -->
+        <div class="form-divider">
+          <span>Hoặc đăng nhập với</span>
+        </div>
+
+        <!-- ĐĂNG NHẬP BẰNG MẠNG XÃ HỘI -->
+        <div class="form-bottom">
+          <div class="form-social">
+            <button
+              type="button"
+              class="form-button-social btn-google"
+              id="btnGoogleLogin"
+            >
+              <img src="images/logo/icons8-google-48.png" alt="Google" />
+              <span>Google</span>
+            </button>
+
+          </div>
+
+          <!-- LINK CHUYỂN SANG TRANG ĐĂNG KÝ -->
+          <div class="form-down">
+            <p>
+              Chưa có tài khoản?
+              <a href="register.html" class="form-register">Đăng ký ngay</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- FOOTER DÙNG CHUNG -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-col">
+          <h3 class="footer-logo">GIBOR COFFEE</h3>
+          <ul>
+            <li>
+              <p>
+                Khơi nguồn cảm hứng từ những hạt cà phê rang xay nguyên chất.
+                Chúng tôi mang đến trải nghiệm hương vị mộc mạc và tinh tế nhất.
+              </p>
+            </li>
+            <li>
+              <img src="images/logo/logoHuit.png" alt="logo-huit" height="60" />
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Khám Phá</h4>
+          <ul>
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="about.html">Giới thiệu</a></li>
+            <li><a href="contact.html">Liên hệ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Liên Hệ</h4>
+          <ul>
+            <li>
+              <p>📍 140 Lê Trọng Tấn, Tân Phú, TP.HCM</p>
+            </li>
+            <li>
+              <p>📞 0909 999 999</p>
+            </li>
+          </ul>
+
+          <h4 style="margin-top: 25px">Theo Dõi GIBOR</h4>
+          <div class="social-links">
+            <a href="#" class="btn btn-secondary">Facebook</a>
+            <a href="#" class="btn btn-secondary">TikTok</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Vị Trí</h4>
+          <div class="google-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31352.538163214747!2d106.5926170349121!3d10.806159823201295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752be27d8b4f4d%3A0x92dcba2950430867!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBUaMawxqFuZyBUUC4gSOG7kyBDaMOtIE1pbmggKEhVSVQp!5e0!3m2!1svi!2s!4v1770452982001!5m2!1svi!2s"
+              width="100%"
+              height="150"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 GIBOR COFFEE. Designed by Team 3 Bảo & Anh.</p>
+      </div>
+    </footer>
+
+    <!-- Firebase SDK cho xác thực Google -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+
+    <!-- Phần JS CHUNG -->
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/loginregister.js"></script>
+    <script src="js/mobile.js"></script>
+  </body>
+</html>
+<!-- 
+
+========================================================================================
+
+                                KẾT THÚC CODE BỞI NGUYỄN THẾ ANH
+
+========================================================================================
+
+-->
