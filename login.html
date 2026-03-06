@@ -13,6 +13,8 @@
     <!-- CSS CHUNG & RIÊNG CHO TRANG LOGIN -->
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/login.css" />
+    <!-- MOBILE RESPONSIVE -->
+    <link rel="stylesheet" href="css/mobile.css" />
 
     <!-- FONT CHỮ DÙNG CHUNG -->
     <link
@@ -161,14 +163,7 @@
               <img src="images/logo/icons8-google-48.png" alt="Google" />
               <span>Google</span>
             </button>
-            <button
-              type="button"
-              class="form-button-social btn-facebook"
-              id="btnFacebookLogin"
-            >
-              <img src="images/logo/icons8-facebook-48.png" alt="Facebook" />
-              <span>Facebook</span>
-            </button>
+
           </div>
 
           <!-- LINK CHUYỂN SANG TRANG ĐĂNG KÝ -->
@@ -248,10 +243,15 @@
       </div>
     </footer>
 
+    <!-- Firebase SDK cho xác thực Google -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+
     <!-- Phần JS CHUNG -->
     <script src="js/data.js"></script>
     <script src="js/main.js"></script>
     <script src="js/loginregister.js"></script>
+    <script src="js/mobile.js"></script>
   </body>
 </html>
 <!-- 
