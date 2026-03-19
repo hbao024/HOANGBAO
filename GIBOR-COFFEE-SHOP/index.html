@@ -1,0 +1,146 @@
+<!-- 
+
+========================================================================================
+
+                                    CODE BỞI TRẦN GIA BẢO
+
+========================================================================================
+
+-->
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GIBOR COFFEE</title>
+
+    <!-- THEME CHÍNH DÙNG CHUNG-->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Font -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&family=Mrs+Saint+Delafield&display=swap"
+    />
+
+    <!-- Logo -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- THEME TRANG CHỦ -->
+    <link rel="stylesheet" href="css/home.css" />
+    <!-- MOBILE RESPONSIVE -->
+    <link rel="stylesheet" href="css/mobile.css" />
+  </head>
+
+  <body>
+    <!-- HEADER DÙNG CHUNG -->
+    <div id="header-placeholder"></div>
+
+    <main>
+      <!-- Loading Screen -->
+      <div class="logo" id="preloader">
+        <div class="loader-icon">
+          <img src="images/logo/logo.jpg" alt="GIBOR Coffee" />
+        </div>
+        <p class="preloader-text">
+          GIBOR COFFEE
+        </p>
+      </div>
+
+      <div>
+        <section class="hero">
+          <div class="hero-content">
+            <h1>GIBOR COFFEE</h1>
+            <p>Thưởng thức hương vị Cà Phê nguyên bản.</p>
+            <div class="hero-btns">
+              <a href="menu.html" class="btn btn-primary">Đặt hàng ngay</a>
+              <a href="about.html" class="btn btn-secondary">Ghé thăm quán</a>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="intro">
+        <h2>Hơn cả một tách cà phê</h2>
+        <p>
+          Tại GIBOR, chúng tôi tin rằng cà phê ngon nhất là khi nó giữ được sự
+          mộc mạc của đất trời và sự tử tế của người pha chế. Không hương liệu,
+          không tạp chất - chỉ có sự nguyên bản từ nông trại đến tách cà phê
+          trên tay bạn.
+        </p>
+        <div class="featured-icons">
+          <div>
+            <i class="fas fa-leaf"></i>
+            <p>100% Rang Mộc</p>
+          </div>
+          <div>
+            <i class="fas fa-heart"></i>
+            <p>Pha Chế Tận Tâm</p>
+          </div>
+          <div>
+            <i class="fas fa-clock"></i>
+            <p>Mở Cửa 07:00 - 22:00</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Advertising Promo Banner -->
+      <section class="promo-banner">
+        <div class="promo-content">
+          <span class="promo-tag">Ưu đãi giới hạn</span>
+          <h2>
+            Mua 2 Tặng 1 <br />
+            <span>Bạc Xỉu GIBOR</span>
+          </h2>
+          <p>
+            Dành riêng cho khách hàng trải nghiệm tại quán vào khung giờ sáng từ
+            7:00 - 10:00 hàng ngày. Đừng bỏ lỡ hương vị nguyên bản!
+          </p>
+          <a href="menu.html" class="btn-cta">Hãy thưởng thức ngay</a>
+        </div>
+        <div class="promo-image"></div>
+      </section>
+    </main>
+
+    <!-- FOOTER DÙNG CHUNG -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Firebase SDK cho xác thực Google -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+
+    <!-- Khởi tạo Firebase -->
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyCnHG40t4WN230Alu4ia0cvzKhfndeBfpE",
+        authDomain: "coffee-a718c.firebaseapp.com",
+        projectId: "coffee-a718c",
+        storageBucket: "coffee-a718c.firebasestorage.app",
+        messagingSenderId: "37237991343",
+        appId: "1:37237991343:web:035a77871af9b41476315a",
+        measurementId: "G-YSS8HXMN6R",
+      };
+      if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+      }
+    </script>
+
+    <!-- Phần JS CHUNG -->
+    <script src="js/components.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/mobile.js"></script>
+  </body>
+</html>
+<!-- 
+
+========================================================================================
+
+                                KẾT THÚC CODE BỞI TRẦN GIA BẢO
+
+========================================================================================
+
+-->

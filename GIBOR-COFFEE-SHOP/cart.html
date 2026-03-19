@@ -1,0 +1,174 @@
+<!-- 
+
+========================================================================================
+
+                                    CODE BỞI TRẦN DƯƠNG GIA BẢO
+
+========================================================================================
+
+-->
+
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giỏ hàng - GIBOR COFFEE</title>
+
+    <!-- THEME CHÍNH DÙNG CHUNG-->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- CSS RIÊNG CHO CART -->
+    <link rel="stylesheet" href="css/cart.css" />
+    <!-- MOBILE RESPONSIVE -->
+    <link rel="stylesheet" href="css/mobile.css" />
+
+    <!-- FONT DÙNG CHUNG -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&family=Mrs+Saint+Delafield&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- HEADER DÙNG CHUNG -->
+    <div id="header-placeholder"></div>
+
+    <main class="cart-container">
+      <!-- Loading Screen -->
+      <div class="logo" id="preloader">
+        <div class="loader-icon">
+          <img src="images/logo/logo.jpg" alt="GIBOR Coffee" />
+        </div>
+        <p
+          style="
+            color: white;
+            margin-top: 20px;
+            letter-spacing: 5px;
+            font-weight: 600;
+          "
+        >
+          GIBOR COFFEE
+        </p>
+      </div>
+
+      <h2 class="cart-title">🛒 GIỎ HÀNG CỦA BẠN</h2>
+
+      <!-- Giỏ hàng trống -->
+      <div class="cart-empty" id="cartEmpty">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <p>Giỏ hàng của bạn đang trống!</p>
+        <a href="menu.html" class="btn-back-menu">Xem Menu</a>
+      </div>
+
+      <!-- Bảng giỏ hàng -->
+      <div class="cart-content hidden" id="cartContent">
+        <table class="cart-table">
+          <thead>
+            <tr>
+              <th>Sản phẩm</th>
+              <th>Size</th>
+              <th>Đơn giá</th>
+              <th>Số lượng</th>
+              <th>Thành tiền</th>
+              <th>Xóa</th>
+            </tr>
+          </thead>
+          <tbody id="cartBody">
+            <!-- Các sản phẩm sẽ được render bởi JS -->
+          </tbody>
+        </table>
+
+        <!-- Tổng cộng & Hành động -->
+        <div class="cart-summary">
+          <div class="cart-summary-info">
+            <p>Tổng sản phẩm: <strong id="totalItems">0</strong></p>
+            <p class="cart-total">
+              Tổng tiền: <strong id="totalPrice">0đ</strong>
+            </p>
+          </div>
+          <div class="cart-actions">
+            <button class="btn-clear" id="btnClearCart">
+              <i class="fa-solid fa-trash"></i> Xóa tất cả
+            </button>
+            <a href="menu.html" class="btn-continue">
+              <i class="fa-solid fa-arrow-left"></i> Tiếp tục mua
+            </a>
+            <button class="btn-checkout" id="btnCheckout">
+              <i class="fa-solid fa-credit-card"></i> Thanh toán
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Popup xác nhận thanh toán -->
+      <div class="checkout-overlay" id="checkoutOverlay">
+        <div class="checkout-box">
+          <span class="checkout-close" id="checkoutClose">✕</span>
+          <h3>🧾 XÁC NHẬN ĐƠN HÀNG</h3>
+          <div class="checkout-details" id="checkoutDetails">
+            <!-- Chi tiết đơn hàng sẽ được render bởi JS -->
+          </div>
+          <div class="checkout-total">
+            Tổng thanh toán: <strong id="checkoutTotal">0đ</strong>
+          </div>
+          <div class="checkout-actions">
+            <button class="btn-cancel" id="btnCancelCheckout">Hủy</button>
+            <button class="btn-confirm" id="btnConfirmCheckout">
+              <i class="fa-solid fa-check"></i> Xác nhận đặt hàng
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Thông báo thành công -->
+      <div class="toast" id="toast">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toastMessage">Thao tác thành công!</span>
+      </div>
+    </main>
+
+    <!-- FOOTER DÙNG CHUNG -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Firebase SDK cho xác thực Google -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+
+    <!-- Khởi tạo Firebase -->
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyCnHG40t4WN230Alu4ia0cvzKhfndeBfpE",
+        authDomain: "coffee-a718c.firebaseapp.com",
+        projectId: "coffee-a718c",
+        storageBucket: "coffee-a718c.firebasestorage.app",
+        messagingSenderId: "37237991343",
+        appId: "1:37237991343:web:035a77871af9b41476315a",
+        measurementId: "G-YSS8HXMN6R",
+      };
+      if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+      }
+    </script>
+
+    <!-- Phần JS CHUNG -->
+    <script src="js/components.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <!-- JS RIÊNG CHO CART -->
+    <script src="js/cart.js"></script>
+    <script src="js/mobile.js"></script>
+  </body>
+</html>
+
+<!-- 
+
+========================================================================================
+
+                                KẾT THÚC CODE BỞI TRẦN DƯƠNG GIA BẢO
+
+========================================================================================
+
+-->

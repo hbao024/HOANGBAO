@@ -1,0 +1,440 @@
+/* 
+========================================================================================
+
+                                    CODE BỞI TRẦN GIA BẢO
+
+========================================================================================
+*/
+
+/* ==================================== PHẦN BACKGROUND CONTACT ================================== */
+
+/* Nền tối */
+body.dark {
+  .contact-title {
+    color: var(--accent);
+  }
+
+  .social-links a {
+    border: 1px solid var(--accent);
+    color: var(--accent);
+  }
+  .modal-content h2,
+  .modal-content p {
+    color: black;
+  }
+}
+
+/* Mobile dark-mode readability for contact info cards */
+@media (max-width: 768px) {
+  body.dark .info-item .text strong {
+    color: var(--accent-light);
+  }
+
+  body.dark .info-item .text p {
+    color: #ddd;
+    opacity: 0.9;
+  }
+}
+
+.contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px;
+}
+
+.contact-title {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  color: var(--primary);
+  margin-bottom: 10px;
+  line-height: 1.1;
+}
+
+.contact-subtitle {
+  font-size: 1.1rem;
+  color: var(--text);
+  opacity: 0.8;
+  margin-bottom: 20px;
+}
+
+.info-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.info-item {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 15px 20px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+body.dark .info-item {
+  background: #2a2a2a;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.info-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(212, 163, 115, 0.2);
+}
+
+.info-item .icon {
+  width: 50px;
+  height: 50px;
+  background: var(--accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.info-item .text strong {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--primary);
+  margin-bottom: 3px;
+}
+
+body.dark .info-item .text strong {
+  color: var(--accent);
+}
+
+.info-item .text p {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.social-box h4 {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  color: var(--primary);
+}
+
+body.dark .social-box h4 {
+  color: #fff;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: #fff;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+body.dark .social-btn {
+  background: #2a2a2a;
+  color: #fff;
+}
+
+.social-btn:hover {
+  background: var(--accent);
+  color: #fff;
+  transform: translateY(-3px);
+  border-color: var(--accent);
+}
+
+.social-btn i {
+  font-size: 1.1rem;
+}
+
+/* ==================================== PHẦN FORM CONTACT ================================== */
+.contact-form-box {
+  flex: 1.2;
+  min-width: 350px;
+  background: #fff;
+  padding: 50px;
+  border-radius: 30px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+}
+
+body.dark .contact-form-box {
+  background: #2a2a2a;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+}
+
+.input-group {
+  margin-bottom: 22px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: var(--primary);
+  opacity: 0.8;
+}
+
+body.dark .input-group label {
+  color: var(--accent);
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 15px 20px;
+  border-radius: 15px;
+  border: 2px solid #eee;
+  background: #fdfdfd;
+  color: var(--text);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+body.dark .input-group input,
+body.dark .input-group textarea {
+  background: #333;
+  border-color: #444;
+  color: #fff;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  background: #fff;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(212, 163, 115, 0.1);
+  outline: none;
+}
+
+body.dark .input-group input:focus,
+body.dark .input-group textarea:focus {
+  background: #3a3a3a;
+}
+
+/* ==================================== PHẦN GỬI CONTACT ================================== */
+
+.btn-send {
+  width: 100%;
+  padding: 18px;
+  border-radius: 15px;
+  border: none;
+  background: var(--primary);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(75, 44, 32, 0.2);
+}
+
+.btn-send:hover {
+  background: var(--accent);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(212, 163, 115, 0.3);
+}
+
+/* Nền tối bao phủ toàn màn hình */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+}
+
+/* Nội dung cửa sổ chính */
+.modal-content {
+  background-color: #fff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 40px;
+  border-radius: 25px;
+  width: 90%;
+  max-width: 450px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border: none;
+}
+
+body.dark .modal-content {
+  background-color: #2a2a2a;
+  color: #fff;
+}
+
+.modal-content h2 {
+  font-family: var(--font-heading);
+  color: var(--primary);
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+body.dark .modal-content h2 {
+  color: var(--accent);
+}
+
+.modal-content p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+body.dark .modal-content p {
+  color: #ccc;
+}
+
+/* Container chứa nút bấm để căn lề phải */
+.modal-footer {
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Kiểu dáng nút đóng */
+.closeBtn {
+  background-color: var(--primary);
+  color: white;
+  padding: 12px 35px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.closeBtn:hover {
+  background-color: var(--accent);
+  transform: scale(1.05);
+}
+
+/* ==================================== PHẦN THÔNG TIN CONTACT ================================== */
+/* Xóa các styles cũ đã được thay thế */
+
+/* ===== RESPONSIVE CONTACT ===== */
+@media (max-width: 992px) {
+  .contact-page {
+    padding: 80px 4%;
+  }
+
+  .contact-container {
+    gap: 40px;
+  }
+
+  .contact-title {
+    font-size: 2.4rem;
+  }
+
+  .contact-info {
+    min-width: 280px;
+  }
+
+  .contact-form-box {
+    min-width: 280px;
+    padding: 35px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-page {
+    padding: 60px 4%;
+  }
+
+  .contact-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .contact-info {
+    min-width: 100%;
+    text-align: center;
+  }
+
+  .contact-title {
+    font-size: 2rem;
+  }
+
+  .info-item {
+    justify-content: center;
+    text-align: left;
+  }
+
+  .contact-form-box {
+    min-width: 100%;
+    padding: 25px 20px;
+  }
+
+  .social-links {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .social-btn {
+    margin: 0;
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-page {
+    padding: 40px 3%;
+  }
+
+  .contact-title {
+    font-size: 2.2rem;
+  }
+
+  .contact-form-box {
+    padding: 30px 20px;
+    border-radius: 20px;
+  }
+
+  .info-item {
+    padding: 12px 15px;
+  }
+}
+
+/* 
+========================================================================================
+
+                                KẾT THÚC CODE BỞI TRẦN GIA BẢO
+
+========================================================================================
+*/

@@ -1,0 +1,435 @@
+<!-- 
+
+========================================================================================
+
+                                    CODE BỞI TRẦN DƯƠNG GIA BẢO
+
+========================================================================================
+
+-->
+
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thanh toán - COFFEE GIBOR SHOP</title>
+
+    <!-- THEME CHÍNH DÙNG CHUNG-->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- CSS RIÊNG CHO CHECKOUT -->
+    <link rel="stylesheet" href="css/payment.css" />
+    <!-- MOBILE RESPONSIVE -->
+    <link rel="stylesheet" href="css/mobile.css" />
+
+    <!-- FONT DÙNG CHUNG -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&family=Mrs+Saint+Delafield&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- HEADER DÙNG CHUNG -->
+    <div id="header-placeholder"></div>
+
+    <main class="checkout-container">
+      <!-- Loading Screen -->
+      <div class="logo" id="preloader">
+        <div class="loader-icon">
+          <img src="images/logo/logo.jpg" alt="GIBOR Coffee" />
+        </div>
+        <p class="preloader-text">GIBOR COFFEE</p>
+      </div>
+
+      <h2 class="checkout-title">THANH TOÁN ĐƠN HÀNG</h2>
+
+      <div class="checkout-layout">
+        <!-- ===== CỘT TRÁI: THÔNG TIN NHẬN HÀNG + VẬN CHUYỂN + THANH TOÁN ===== -->
+        <div class="checkout-left">
+          <!-- THÔNG TIN NHẬN HÀNG -->
+          <section class="checkout-section">
+            <div class="section-header">
+              <h3>Thông tin nhận hàng</h3>
+            </div>
+            <div class="form-group">
+              <label for="ckEmail">Email <span class="required">*</span></label>
+              <input
+                type="email"
+                id="ckEmail"
+                placeholder="email@example.com"
+              />
+            </div>
+            <div class="form-group">
+              <label for="ckName"
+                >Họ và tên <span class="required">*</span></label
+              >
+              <input
+                type="text"
+                id="ckName"
+                placeholder="Nguyễn Văn A"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="ckPhone"
+                >Số điện thoại <span class="required">*</span></label
+              >
+              <div class="phone-input">
+                <span class="phone-prefix">🇻🇳 +84</span>
+                <input
+                  type="tel"
+                  id="ckPhone"
+                  placeholder="0909 xxx xxx"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group" id="groupAddress">
+              <label for="ckAddress"
+                >Địa chỉ <span class="required">*</span></label
+              >
+              <input
+                type="text"
+                id="ckAddress"
+                placeholder="Số nhà, tên đường..."
+              />
+            </div>
+            <div class="form-group" id="groupCity">
+              <label for="ckCity"
+                >Tỉnh/Thành phố <span class="required">*</span></label
+              >
+              <select id="ckCity">
+                <option value="">--- Chọn ---</option>
+                <option value="hn">Hà Nội</option>
+                <option value="dn">Đà Nẵng</option>
+                <option value="hcm">TP. Hồ Chí Minh</option>
+              </select>
+            </div>
+            <div class="form-group" id="groupWard">
+              <label for="ckWard"
+                >Phường/Xã <span class="required">*</span></label
+              >
+              <select id="ckWard">
+                <option value="">--- Chọn ---</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="ckNote">Ghi chú đơn hàng</label>
+              <textarea
+                id="ckNote"
+                rows="3"
+                placeholder="VD: Giao hàng giờ hành chính, gọi trước 15 phút..."
+              ></textarea>
+            </div>
+          </section>
+
+          <!-- VẬN CHUYỂN -->
+          <section class="checkout-section">
+            <h3>Hình thức nhận hàng</h3>
+            <div class="shipping-options">
+              <label class="shipping-option active" data-method="delivery">
+                <input type="radio" name="shipping" value="delivery" checked />
+                <span class="shipping-radio"></span>
+                <span class="shipping-label">Giao hàng tận nơi</span>
+                <i class="fa-solid fa-truck"></i>
+              </label>
+              <label class="shipping-option" data-method="dine-in">
+                <input type="radio" name="shipping" value="dine-in" />
+                <span class="shipping-radio"></span>
+                <span class="shipping-label">Sử dụng tại quán</span>
+                <i class="fa-solid fa-store"></i>
+              </label>
+            </div>
+            <div class="shipping-notice hidden" id="shippingNotice">
+              <i class="fa-solid fa-circle-info"></i>
+              <span>Vui lòng nhập đầy đủ thông tin giao hàng ở trên</span>
+            </div>
+
+            <!-- CHỌN CHI NHÁNH (chỉ hiện khi uống tại quán) -->
+            <div class="branch-section" id="branchSection">
+              <h4><i class="fa-solid fa-location-dot"></i> Chọn chi nhánh</h4>
+              <div class="form-group">
+                <label for="branchCity">Khu vực</label>
+                <select id="branchCity">
+                  <option value="">--- Chọn khu vực ---</option>
+                  <option value="hcm">TP. Hồ Chí Minh</option>
+                  <option value="hn">Hà Nội</option>
+                  <option value="dn">Đà Nẵng</option>
+                </select>
+              </div>
+              <div class="branch-list" id="branchList">
+                <!-- Các chi nhánh sẽ được render bởi JS -->
+              </div>
+            </div>
+          </section>
+
+          <!-- PHƯƠNG THỨC THANH TOÁN -->
+          <section class="checkout-section">
+            <h3>Thanh toán</h3>
+            <div class="payment-options">
+              <label class="payment-option active" data-method="cod">
+                <input type="radio" name="payment" value="cod" checked />
+                <span class="payment-radio"></span>
+                <span class="payment-label"
+                  >Thanh toán khi giao hàng (COD)</span
+                >
+                <i class="fa-solid fa-money-bill-wave"></i>
+              </label>
+              <label class="payment-option" data-method="banking">
+                <input type="radio" name="payment" value="banking" />
+                <span class="payment-radio"></span>
+                <span class="payment-label">Chuyển khoản ngân hàng</span>
+                <i class="fa-solid fa-building-columns"></i>
+              </label>
+            </div>
+          </section>
+        </div>
+
+        <!-- ===== CỘT PHẢI: ĐƠN HÀNG ===== -->
+        <div class="checkout-right">
+          <section class="checkout-section order-section">
+            <h3>Đơn hàng (<span id="orderCount">0</span> sản phẩm)</h3>
+
+            <div class="order-items" id="orderItems">
+              <!-- Sản phẩm sẽ được render bởi JS -->
+            </div>
+
+            <!-- Mã giảm giá -->
+            <div class="coupon-row">
+              <input
+                type="text"
+                id="couponCode"
+                placeholder="Nhập mã giảm giá"
+              />
+              <button class="btn-coupon" id="btnCoupon">Áp dụng</button>
+            </div>
+
+            <!-- Điểm tích lũy -->
+            <div
+              class="points-section"
+              id="pointsSection"
+              style="display: none"
+            >
+              <div class="points-header">
+                <span class="points-icon"
+                  ><i class="fa-solid fa-coins"></i
+                ></span>
+                <span class="points-title">Điểm tích lũy</span>
+                <span class="points-current" id="pointsCurrent">0 điểm</span>
+              </div>
+              <div class="points-body">
+                <div class="points-input-row">
+                  <label>Dùng điểm:</label>
+                  <input
+                    type="number"
+                    id="pointsInput"
+                    min="0"
+                    value="0"
+                    placeholder="Nhập số điểm"
+                  />
+                  <button class="btn-use-points" id="btnUsePoints">
+                    Áp dụng
+                  </button>
+                </div>
+                <div class="points-info">
+                  <div class="points-info-row-1">
+                    <span>1 điểm = 10 đồng</span>
+                  </div>
+                  <div class="points-info-row">
+                    <span>Điểm nhận được từ đơn này:</span>
+                    <span class="points-earn" id="pointsEarn">+0 điểm</span>
+                  </div>
+                  <div
+                    class="points-info-row"
+                    id="pointsDiscountRow"
+                    style="display: none"
+                  >
+                    <span>Giảm giá từ điểm:</span>
+                    <span class="points-discount" id="pointsDiscountAmount"
+                      >-0đ</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tính tiền -->
+            <div class="order-calc">
+              <div class="calc-row">
+                <span>Tạm tính</span>
+                <span id="subtotalPrice">0đ</span>
+              </div>
+              <div class="calc-row">
+                <span>Phí vận chuyển</span>
+                <span id="shippingFee">-</span>
+              </div>
+              <div
+                class="calc-row discount-row"
+                id="discountRow"
+                style="display: none"
+              >
+                <span>Giảm giá</span>
+                <span id="discountAmount">-0đ</span>
+              </div>
+              <div
+                class="calc-row points-discount-calc"
+                id="pointsDiscountCalcRow"
+                style="display: none"
+              >
+                <span>Quy đổi điểm</span>
+                <span id="pointsDiscountCalc" class="points-discount-green"
+                  >-0đ</span
+                >
+              </div>
+            </div>
+
+            <!-- Tổng cộng -->
+            <div class="order-total">
+              <span>Tổng cộng</span>
+              <strong id="grandTotal">0đ</strong>
+            </div>
+
+            <!-- Hành động -->
+            <div class="order-actions">
+              <a href="cart.html" class="btn-back-cart">
+                <i class="fa-solid fa-chevron-left"></i> Quay về giỏ hàng
+              </a>
+              <button class="btn-place-order" id="btnPlaceOrder">
+                <i class="fa-solid fa-check"></i> ĐẶT HÀNG
+              </button>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!-- Toast thông báo -->
+      <div class="toast" id="toast">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toastMessage">Thao tác thành công!</span>
+      </div>
+
+      <!-- Popup xác nhận thanh toán -->
+      <div class="confirm-overlay" id="confirmOverlay">
+        <div class="confirm-popup">
+          <div class="confirm-icon">
+            <i class="fa-solid fa-circle-question"></i>
+          </div>
+          <h3>Xác nhận thanh toán</h3>
+
+          <!-- CODE BỜI TRẦN GIA BẢO -->
+          <div class="banking-info" id="bankingInfo" style="display: none">
+            <p style="font-weight: 600; margin-bottom: 10px">
+              Quét để thanh toán đơn hàng
+            </p>
+
+            <div class="loader" id="qrLoader"></div>
+            <img id="qrImage" src="" alt="Mã QR thanh toán" />
+
+            <div class="qr-details">
+              <p>
+                <strong>Chủ TK:</strong> <span id="bankName">TRAN GIA BAO</span>
+              </p>
+              <p>
+                <strong>Số TK:</strong> 398383979
+                <button class="copy-btn">Sao chép</button>
+              </p>
+              <p>
+                <strong>Số tiền:</strong>
+                <span
+                  id="displayAmount"
+                  style="color: var(--accent-color); font-weight: bold"
+                  >0đ</span
+                >
+              </p>
+              <p>
+                <strong>Nội dung:</strong>
+                <span
+                  id="displayDesc"
+                  style="color: #007bff; font-weight: bold"
+                ></span>
+              </p>
+            </div>
+          </div>
+
+          <p style="font-size: 13px; color: #666; margin-top: 8px">
+            Nhấn <strong>Xác nhận</strong> nếu đã chuyển khoản thành công.<br />
+            Nhấn <strong>Hủy</strong> để kiểm tra lại thông tin.
+          </p>
+
+          <div class="confirm-actions">
+            <button class="btn-confirm-cancel" id="btnConfirmCancel">
+              <i class="fa-solid fa-times"></i> Hủy
+            </button>
+
+            <button class="btn-confirm-ok" id="btnConfirmOk">
+              <i class="fa-solid fa-check"></i> Xác nhận
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- KẾT THÚC CODE BỞI TRẦN GIA BẢO -->
+
+      <!-- Popup đặt hàng thành công -->
+      <div class="success-overlay" id="successOverlay">
+        <div class="success-box">
+          <div class="success-icon">
+            <i class="fa-solid fa-circle-check"></i>
+          </div>
+          <h3>Đặt hàng thành công!</h3>
+          <p>Cảm ơn bạn đã đặt hàng tại <strong>GIBOR COFFEE</strong>.</p>
+          <p>Chúng tôi sẽ liên hệ xác nhận đơn hàng sớm nhất.</p>
+          <p class="order-code">
+            Mã đơn: <strong id="orderCode">#GB0000</strong>
+          </p>
+          <div class="success-actions">
+            <a href="menu.html" class="btn-success-menu">Tiếp tục mua sắm</a>
+            <a href="index.html" class="btn-success-home">Về trang chủ</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER DÙNG CHUNG -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Firebase SDK cho xác thực Google -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+
+    <!-- Khởi tạo Firebase (PHẢI đặt sau khi load SDK) -->
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyCnHG40t4WN230Alu4ia0cvzKhfndeBfpE",
+        authDomain: "coffee-a718c.firebaseapp.com",
+        projectId: "coffee-a718c",
+        storageBucket: "coffee-a718c.firebasestorage.app",
+        messagingSenderId: "37237991343",
+        appId: "1:37237991343:web:035a77871af9b41476315a",
+        measurementId: "G-YSS8HXMN6R",
+      };
+      if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+      }
+    </script>
+
+    <script src="js/components.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/payment.js?v=20260317"></script>
+    <script src="js/mobile.js"></script>
+  </body>
+</html>
+
+<!-- 
+
+========================================================================================
+
+                                   KẾT THÚC CODE BỞI TRẦN DƯƠNG GIA BẢO
+
+========================================================================================
+
+-->

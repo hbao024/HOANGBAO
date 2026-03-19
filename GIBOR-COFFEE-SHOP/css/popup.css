@@ -1,0 +1,618 @@
+/* 
+========================================================================================
+
+                                     CODE BỞI NGUYỄN HOÀNG BẢO
+
+========================================================================================
+*/
+
+/* ===== LỚP PHỦ NỀN ===== */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* ===== KHUNG POPUP ===== */
+.popup-box {
+  background: var(--card, #fff);
+  width: 420px;
+  max-width: 92vw;
+  max-height: 90vh;
+  border-radius: 16px;
+  overflow: hidden;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: popupSlideIn 0.35s ease;
+}
+
+@keyframes popupSlideIn {
+  from {
+    transform: translateY(40px) scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* ===== NÚT ĐÓNG ===== */
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  cursor: pointer;
+  font-size: 22px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.4);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: background 0.3s;
+}
+
+.popup-close:hover {
+  background: rgba(231, 76, 60, 0.9);
+}
+
+/* ===== ẢNH SẢN PHẨM ===== */
+.popup-img-wrap {
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+}
+
+.popup-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.popup-box:hover .popup-img-wrap img {
+  transform: scale(1.03);
+}
+
+/* ===== PHẦN THÔNG TIN ===== */
+.popup-info {
+  padding: 20px 22px 22px;
+}
+
+/* Tên sản phẩm */
+.popup-info h3 {
+  font-family: var(--font-heading, serif);
+  font-size: 1.4rem;
+  color: var(--primary, #4b2c20);
+  margin-bottom: 4px;
+}
+
+body.dark .popup-info h3 {
+  color: var(--accent, #d4a373);
+}
+
+.popup-desc {
+  font-size: 13px;
+  opacity: 0.6;
+  margin-bottom: 16px;
+}
+
+/* ===== CHỌN SIZE ===== */
+.size-options {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.size-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 6px;
+  border-radius: 12px;
+  border: 2px solid var(--accent, #d4a373);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  color: var(--text, #2d2424);
+}
+
+.size-label {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.size-price {
+  font-size: 12px;
+  font-weight: 600;
+  opacity: 0.75;
+}
+
+/* Hover */
+.size-btn:hover {
+  background: rgba(212, 163, 115, 0.15);
+  border-color: var(--primary, #4b2c20);
+  transform: translateY(-2px);
+}
+
+/* Đang chọn */
+.size-btn.active {
+  background: var(--accent, #d4a373);
+  border-color: var(--accent, #d4a373);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(212, 163, 115, 0.45);
+}
+
+.size-btn.active .size-price {
+  opacity: 1;
+}
+
+/* Thông báo lỗi khi chưa chọn size */
+.size-error {
+  display: none;
+  color: #e74c3c;
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: -10px;
+  margin-bottom: 14px;
+  margin-left: 120px;
+}
+
+.size-error.show {
+  display: block;
+}
+
+/* ===== LƯỢNG ĐƯỜNG / ĐÁ / GHI CHÚ ===== */
+.option-group {
+  margin-bottom: 14px;
+}
+
+.option-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--primary, #4b2c20);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+body.dark .option-label {
+  color: var(--accent, #d4a373);
+}
+
+.option-btns {
+  display: flex;
+  gap: 6px;
+}
+
+.option-btn {
+  flex: 1;
+  padding: 8px 4px;
+  border: 1.5px solid var(--accent, #d4a373);
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text, #2d2424);
+  transition: all 0.2s ease;
+}
+
+.option-btn:hover {
+  background: rgba(212, 163, 115, 0.15);
+  transform: translateY(-1px);
+}
+
+.option-btn.active {
+  background: var(--accent, #d4a373);
+  border-color: var(--accent, #d4a373);
+  color: #fff;
+}
+
+/* Ghi chú */
+.popup-note {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid var(--accent, #d4a373);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text, #2d2424);
+  font-family: var(--font-body, sans-serif);
+  font-size: 13px;
+  resize: vertical;
+  min-height: 50px;
+  max-height: 100px;
+  transition: border-color 0.3s;
+  outline: none;
+}
+
+.popup-note::placeholder {
+  color: var(--text, #999);
+  opacity: 0.5;
+}
+
+.popup-note:focus {
+  border-color: var(--primary, #4b2c20);
+  box-shadow: 0 0 0 3px rgba(212, 163, 115, 0.2);
+}
+
+/* ===== CHỌN TOPPING ===== */
+.topping-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.topping-btn {
+  padding: 8px 18px;
+  border: 1.5px solid #ccc;
+  border-radius: 50px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text, #2d2424);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.topping-btn:hover {
+  border-color: var(--primary, #4b2c20);
+  background: rgba(212, 163, 115, 0.1);
+}
+
+.topping-btn.active {
+  border-color: var(--primary, #4b2c20);
+  color: var(--primary, #4b2c20);
+  background: rgba(212, 163, 115, 0.12);
+  font-weight: 600;
+}
+
+/* ===== SỐ LƯỢNG (BÁNH/TOPPING) ===== */
+.popup-quantity {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  vertical-align: middle;
+  gap: 16px;
+  margin-bottom: 16px;
+  margin-left: 65px;
+}
+
+.popup-quantity .option-label {
+  font-weight: 600;
+  color: var(--text, #2d2424);
+  font-size: 15px;
+  margin: 0;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.qty-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid #ccc;
+  background: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text, #2d2424);
+  transition: all 0.2s ease;
+}
+
+.qty-btn:hover {
+  border-color: var(--primary, #4b2c20);
+  background: var(--bg-light, #faf6f1);
+}
+
+.qty-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary, #4b2c20);
+  min-width: 24px;
+  text-align: center;
+}
+
+/* ===== GIÁ ĐANG CHỌN ===== */
+.popup-price {
+  font-size: 18px;
+  color: var(--text, #2d2424);
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.popup-price strong {
+  color: #e74c3c;
+  font-size: 22px;
+}
+
+/* ===== NÚT THÊM GIỎ HÀNG ===== */
+.add-cart {
+  width: 100%;
+  padding: 13px;
+  border-radius: 12px;
+  border: none;
+  background: var(--primary, #4b2c20);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.add-cart:hover {
+  background: var(--accent, #d4a373);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(212, 163, 115, 0.4);
+}
+
+.add-cart:active {
+  transform: translateY(0);
+}
+
+/* ===== DARK THEME POPUP ===== */
+body.dark .popup-box {
+  background: #1f1f1f;
+  color: #f4e9de;
+}
+
+body.dark .popup-desc {
+  color: #c4b5a6;
+}
+
+body.dark .size-btn,
+body.dark .option-btn,
+body.dark .topping-btn,
+body.dark .qty-btn {
+  background: #2a2a2a;
+  border-color: #5b4638;
+  color: #f4e9de;
+}
+
+body.dark .size-btn.active,
+body.dark .option-btn.active,
+body.dark .topping-btn.active {
+  background: var(--accent, #d4a373);
+  border-color: var(--accent, #d4a373);
+  color: #2d1b13;
+}
+
+body.dark .popup-note {
+  background: #252525;
+  border-color: #5b4638;
+  color: #f4e9de;
+}
+
+body.dark .popup-note::placeholder {
+  color: #9f8a78;
+}
+
+body.dark .popup-quantity .option-label,
+body.dark .qty-value {
+  color: var(--accent, #d4a373);
+}
+
+body.dark .add-cart {
+  background: var(--accent, #d4a373);
+  color: #2d1b13;
+}
+
+/* ===== TOAST THÔNG BÁO ===== */
+.popup-toast {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  background: #27ae60;
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 6px 25px rgba(39, 174, 96, 0.4);
+  transform: translateX(400px);
+  opacity: 0;
+  transition: all 0.4s ease;
+  z-index: 10001;
+}
+
+.popup-toast.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.popup-toast i {
+  font-size: 20px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+  .popup-box {
+    width: 95vw;
+  }
+  .popup-img-wrap {
+    height: 200px;
+  }
+  .popup-info {
+    padding: 15px;
+  }
+  .size-btn {
+    padding: 10px 4px;
+  }
+  .size-label {
+    font-size: 15px;
+  }
+  .option-btn {
+    padding: 6px 2px;
+    font-size: 11px;
+  }
+  .popup-toast {
+    left: 15px;
+    right: 15px;
+    top: auto;
+    bottom: 20px;
+    justify-content: center;
+  }
+}
+
+/* 
+========================================================================================
+
+                                    KẾT THÚC CODE BỞI NGUYỄN HOÀNG BẢO
+
+========================================================================================
+*/
+
+/* 
+========================================================================================
+
+                                    BẮT ĐẦU CODE BỞI TRẦN GIA BẢO
+
+========================================================================================
+*/
+.popup-overlay-ads {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--overlay-color);
+  display: none; /* Mặc định ẩn */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(5px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.popup-overlay-ads.show {
+  display: flex;
+  opacity: 1;
+}
+
+/* Khung chứa banner */
+.popup-content-ads {
+  background: white;
+  width: 40%;
+  max-width: 60%;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  transform: scale(0.7);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive pop-up ads */
+@media (max-width: 1024px) {
+  .popup-content-ads {
+    width: 70%;
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .popup-content-ads {
+    width: 95%;
+    max-width: 95%;
+    border-radius: 14px;
+  }
+}
+
+.popup-overlay-ads.show .popup-content-ads {
+  transform: scale(1);
+}
+
+/* Nút đóng (X) */
+.close-btn-ads {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 35px;
+  height: 35px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+  color: #333;
+  transition: 0.3s;
+}
+
+.close-btn-ads:hover {
+  background: var(--pink-primary);
+  color: white;
+  transform: rotate(90deg);
+}
+
+/* Hình ảnh banner */
+.banner-img-container-ads {
+  background: #eee;
+  overflow: hidden;
+}
+
+.banner-img-container-ads img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.btn-claim-ads {
+  text-align: center;
+  display: block;
+  width: 100%;
+  padding: 15px;
+  background: green;
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: bold;
+  transition: 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-claim-ads:hover {
+  background: #9d174d;
+  box-shadow: 0 10px 15px -3px rgba(190, 24, 93, 0.4);
+}
+
+/* 
+========================================================================================
+
+                                    KẾT THÚC CODE BỞI TRẦN GIA BẢO
+
+========================================================================================
+*/

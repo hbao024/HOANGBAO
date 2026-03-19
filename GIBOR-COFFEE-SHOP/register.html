@@ -1,0 +1,230 @@
+<!-- 
+  ========================================================================================
+                              CODE BỞI Nguyễn Thế Anh
+  ========================================================================================
+-->
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng Ký - GIBOR COFFEE SHOP</title>
+
+    <!-- CSS CHUNG & RIÊNG CHO TRANG ĐĂNG KÝ -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/register.css" />
+    <!-- MOBILE RESPONSIVE -->
+    <link rel="stylesheet" href="css/mobile.css" />
+
+    <!-- FONT CHỮ DÙNG CHUNG -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&family=Mrs+Saint+Delafield&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ICON FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- ==================== HEADER DÙNG CHUNG ==================== -->
+    <div id="header-placeholder"></div>
+
+    <!-- ==================== NỘI DUNG TRANG ĐĂNG KÝ ==================== -->
+    <main class="login-page">
+      <!-- Trần Gia Bảo bắt đầu chỉnh sửa -->
+      <!-- Loading Screen -->
+      <div class="logo" id="preloader">
+        <div class="loader-icon">
+          <img src="images/logo/logo.jpg" alt="GIBOR Coffee" />
+        </div>
+        <p class="preloader-text">
+          GIBOR COFFEE
+        </p>
+      </div>
+      <!-- Trần Gia Bảo kết thúc chỉnh sửa -->
+
+      <div class="login-container">
+        <!-- ICON CÀ PHÊ TRANG TRÍ -->
+        <div class="form-icon">
+          <i class="fas fa-user-plus"></i>
+        </div>
+
+        <!-- TIÊU ĐỀ -->
+        <div class="form-top">
+          <h1>Tạo Tài Khoản Mới</h1>
+          <p class="form-subtitle">
+            Đăng ký để nhận ưu đãi và đặt hàng nhanh hơn
+          </p>
+        </div>
+
+        <!-- FORM ĐĂNG KÝ -->
+        <form class="form-box" id="registerForm">
+          <!-- Hàng: Họ + Tên (chia 2 cột) -->
+          <div class="input-row">
+            <!-- Ô nhập Họ -->
+            <div class="input-group">
+              <i class="fas fa-user input-icon"></i>
+              <input
+                id="regLastName"
+                type="text"
+                class="input-field"
+                placeholder="Họ"
+                autocomplete="family-name"
+                required
+              />
+            </div>
+
+            <!-- Ô nhập Tên -->
+            <div class="input-group">
+              <i class="fas fa-user input-icon"></i>
+              <input
+                id="regFirstName"
+                type="text"
+                class="input-field"
+                placeholder="Tên"
+                autocomplete="given-name"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Ô nhập Email -->
+          <div class="input-group">
+            <i class="fas fa-envelope input-icon"></i>
+            <input
+              id="regEmail"
+              type="email"
+              class="input-field"
+              placeholder="Nhập địa chỉ email"
+              autocomplete="email"
+              required
+            />
+          </div>
+
+          <!-- Ô nhập Số điện thoại -->
+          <div class="input-group">
+            <i class="fas fa-phone input-icon"></i>
+            <input
+              id="regPhone"
+              type="tel"
+              class="input-field"
+              placeholder="Nhập số điện thoại"
+              autocomplete="tel"
+              pattern="[0-9]{10,11}"
+              title="Số điện thoại gồm 10-11 chữ số"
+              required
+            />
+          </div>
+
+          <!-- Ô nhập Mật khẩu -->
+          <div class="input-group">
+            <i class="fas fa-lock input-icon"></i>
+            <input
+              id="regPassword"
+              type="password"
+              class="input-field"
+              placeholder="Nhập mật khẩu (tối thiểu 6 ký tự)"
+              autocomplete="new-password"
+              minlength="6"
+              required
+            />
+            <!-- Nút ẩn/hiện mật khẩu -->
+            <button
+              type="button"
+              class="toggle-password"
+              aria-label="Hiện mật khẩu"
+            >
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+
+          <!-- Nút đăng ký -->
+          <button type="submit" class="form-button-submit">
+            <i class="fas fa-user-plus"></i> Đăng Ký
+          </button>
+        </form>
+
+        <!-- ĐƯỜNG CHIA CÁCH -->
+        <div class="form-divider">
+          <span>Hoặc đăng ký với</span>
+        </div>
+
+        <!-- ĐĂNG KÝ BẰNG MẠNG XÃ HỘI -->
+        <div class="form-bottom">
+          <div class="form-social">
+            <button
+              type="button"
+              class="form-button-social btn-google"
+              id="btnGoogleRegister"
+            >
+              <img src="images/logo/icons8-google-48.png" alt="Google" />
+              <span>Google</span>
+            </button>
+            <button
+              type="button"
+              class="form-button-social btn-github"
+              id="btnGithubRegister"
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+                alt="GitHub"
+              />
+              <span>GitHub</span>
+            </button>
+          </div>
+
+          <!-- LINK CHUYỂN SANG TRANG ĐĂNG NHẬP -->
+          <div class="form-down">
+            <p>
+              Đã có tài khoản?
+              <a href="login.html" class="form-register">Đăng nhập</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER DÙNG CHUNG -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Firebase SDK cho xác thực Google -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+
+    <!-- Khởi tạo Firebase (PHẢI đặt sau khi load SDK, trước khi dùng firebase.auth()) -->
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyCnHG40t4WN230Alu4ia0cvzKhfndeBfpE",
+        authDomain: "coffee-a718c.firebaseapp.com",
+        projectId: "coffee-a718c",
+        storageBucket: "coffee-a718c.firebasestorage.app",
+        messagingSenderId: "37237991343",
+        appId: "1:37237991343:web:035a77871af9b41476315a",
+        measurementId: "G-YSS8HXMN6R",
+      };
+      if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+      }
+    </script>
+
+    <!-- Phần JS CHUNG -->
+    <script src="js/components.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/loginregister.js"></script>
+    <script src="js/mobile.js"></script>
+  </body>
+</html>
+<!-- 
+
+========================================================================================
+
+                                KẾT THÚC CODE BỞI NGUYỄN THẾ ANH
+
+========================================================================================
+
+-->

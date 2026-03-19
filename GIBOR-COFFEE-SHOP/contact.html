@@ -1,0 +1,196 @@
+<!-- 
+
+========================================================================================
+
+                                    CODE BỞI TRẦN GIA BẢO
+
+========================================================================================
+
+-->
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Liên hệ với GIBOR COFFEE</title>
+
+    <!-- THEME CHÍNH DÙNG CHUNG -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- FONT DÙNG CHUNG -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&family=Mrs+Saint+Delafield&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- THEME CONTACT -->
+    <link rel="stylesheet" href="css/contact.css" />
+
+    <!-- MOBILE RESPONSIVE -->
+    <link rel="stylesheet" href="css/mobile.css" />
+  </head>
+
+  <body>
+    <!-- HEADER DÙNG CHUNG -->
+    <div id="header-placeholder"></div>
+
+    <main>
+      <!-- Loading Screen -->
+      <div class="logo" id="preloader">
+        <div class="loader-icon">
+          <img src="images/logo/logo.jpg" alt="GIBOR Coffee" />
+        </div>
+        <p class="preloader-text">GIBOR COFFEE</p>
+      </div>
+
+      <section class="contact-page">
+        <div class="contact-container">
+          <div class="contact-info">
+            <h1 class="contact-title">Liên Hệ Với Chúng Mình</h1>
+            <p class="contact-subtitle">
+              GIBOR luôn sẵn sàng lắng nghe những chia sẻ của bạn.
+            </p>
+
+            <div class="info-group">
+              <div class="info-item">
+                <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+                <div class="text">
+                  <strong>Địa chỉ:</strong>
+                  <p>140 Lê Trọng Tấn, Tây Thạnh, Tân Phú, TP.HCM</p>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <span class="icon"><i class="fas fa-phone-alt"></i></span>
+                <div class="text">
+                  <strong>Hotline:</strong>
+                  <p>0909 999 999</p>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <span class="icon"><i class="fas fa-envelope"></i></span>
+                <div class="text">
+                  <strong>Email:</strong>
+                  <p>anh3bao@giborcoffee.com</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="social-box">
+              <h4>Theo dõi GIBOR</h4>
+              <div class="social-links">
+                <a href="#" class="social-btn">
+                  <i class="fab fa-facebook-f"></i> Facebook
+                </a>
+                <a href="#" class="social-btn">
+                  <i class="fab fa-tiktok"></i> TikTok
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form-box">
+            <form id="contactForm">
+              <div class="input-group">
+                <label for="fullname">Họ và tên</label>
+                <input
+                  type="text"
+                  id="fullname"
+                  name="fullname"
+                  placeholder="Nhập tên của bạn..."
+                  required
+                />
+              </div>
+
+              <div class="input-group">
+                <label for="phone">Số điện thoại</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="Số điện thoại của bạn..."
+                  required
+                />
+              </div>
+
+              <div class="input-group">
+                <label for="message">Lời nhắn</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  placeholder="Bạn muốn nhắn gì cho GIBOR?"
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" id="btn-gui" class="btn-send">
+                Gửi Lời Nhắn
+              </button>
+            </form>
+
+            <!-- MODAL THÀNH CÔNG -->
+            <div id="myModal" class="modal">
+              <div class="modal-content">
+                <h2>Thành công!</h2>
+                <p>Cảm ơn bạn! GIBOR đã nhận được lời nhắn từ bạn.</p>
+
+                <div class="modal-footer">
+                  <button type="button" class="closeBtn">X Đóng</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER DÙNG CHUNG -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Firebase SDK cho xác thực Google -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+
+    <!-- Khởi tạo Firebase -->
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyCnHG40t4WN230Alu4ia0cvzKhfndeBfpE",
+        authDomain: "coffee-a718c.firebaseapp.com",
+        projectId: "coffee-a718c",
+        storageBucket: "coffee-a718c.firebasestorage.app",
+        messagingSenderId: "37237991343",
+        appId: "1:37237991343:web:035a77871af9b41476315a",
+        measurementId: "G-YSS8HXMN6R",
+      };
+
+      if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+      }
+    </script>
+
+    <!-- PHẦN JS CHUNG -->
+    <script src="js/components.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- PHẦN JS CONTACT -->
+    <script src="js/contact.js"></script>
+    <script src="js/mobile.js"></script>
+  </body>
+</html>
+
+<!-- 
+
+========================================================================================
+
+                                KẾT THÚC CODE BỞI TRẦN GIA BẢO
+
+========================================================================================
+
+-->
