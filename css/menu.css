@@ -45,6 +45,7 @@ body.dark {
   --text: #f5f5f5;
   --navbar: rgba(75, 44, 32, 0.95);
   --card: #1e1e1e;
+
   .menu-title,
   .menu-section h3 {
     color: var(--accent);
@@ -90,7 +91,8 @@ body {
 ========================================== PHẦN HEADER ==================================
 */
 .header {
-  position: sticky; /* cuộn xuống */
+  position: sticky;
+  /* cuộn xuống */
   top: 0;
   z-index: 999;
   background: var(--primary);
@@ -190,12 +192,14 @@ body {
 
 /* Khi scroll */
 .header.scrolled {
-  background-color: var(
-    --primary-color
-  ); /* Sử dụng đúng tên biến đã khai báo ở :root */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); /* Đổ bóng dùng rgba để chỉnh độ mờ cho đẹp */
-  padding: 10px 5%; /* Thu gọn header lại một chút khi cuộn cho tinh tế */
-  transition: all 0.4s ease; /* Giúp hiệu ứng biến đổi mượt mà */
+  background-color: var(--primary-color);
+  /* Sử dụng đúng tên biến đã khai báo ở :root */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  /* Đổ bóng dùng rgba để chỉnh độ mờ cho đẹp */
+  padding: 10px 5%;
+  /* Thu gọn header lại một chút khi cuộn cho tinh tế */
+  transition: all 0.4s ease;
+  /* Giúp hiệu ứng biến đổi mượt mà */
 }
 
 .header-actions {
@@ -350,10 +354,6 @@ a {
   .logo {
     font-size: 1.2rem;
   }
-
-  .menu-card img {
-    height: 280px;
-  }
 }
 
 @media (max-width: 768px) {
@@ -420,9 +420,11 @@ a {
   .nav.active .nav-links li:nth-child(1) {
     transition-delay: 0.1s;
   }
+
   .nav.active .nav-links li:nth-child(2) {
     transition-delay: 0.2s;
   }
+
   .nav.active .nav-links li:nth-child(3) {
     transition-delay: 0.3s;
   }
@@ -466,81 +468,12 @@ a {
     font-size: 15px;
   }
 
-  /* MENU CONTENT */
-  .menu-container {
-    margin: 25px auto;
-    padding: 0 12px;
-  }
-
-  .menu-title {
-    font-size: 22px;
-    margin-bottom: 25px;
-  }
-
-  .section-title {
-    font-size: 18px;
-    margin-bottom: 15px;
-  }
-
-  .menu-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-
-  .menu-card {
-    padding: 10px;
-  }
-
-  .menu-card img {
-    height: 200px;
-    border-radius: 8px;
-  }
-
-  .menu-card h4 {
-    font-size: 14px;
-    margin: 8px 0 3px;
-  }
-
-  .menu-card p {
-    font-size: 12px;
-  }
-
-  .price {
-    font-size: 13px;
-  }
-
-  .badge {
-    font-size: 10px;
-    padding: 4px 8px;
-  }
-
   .footer-col {
     min-width: 100%;
   }
 }
 
 @media (max-width: 480px) {
-  .menu-grid {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-
-  .menu-card img {
-    height: 250px;
-  }
-
-  .menu-card h4 {
-    font-size: 16px;
-  }
-
-  .menu-card p {
-    font-size: 13px;
-  }
-
-  .menu-title {
-    font-size: 20px;
-  }
-
   .header-actions {
     gap: 5px;
   }
@@ -569,9 +502,14 @@ a {
 }
 
 .menu-container {
+  margin: 0 auto;
+}
+
+.menu-page {
   max-width: 1200px;
-  margin: 50px auto;
-  padding: 0 20px;
+  /* Dùng CSS riêng để không chặn padding-top mà mobile.js cần set cho category tabs. */
+  padding-top: clamp(24px, 4vw, 48px);
+  padding-bottom: clamp(32px, 5vw, 64px);
 }
 
 body.dark .menu-container {
@@ -580,6 +518,48 @@ body.dark .menu-container {
   border-radius: 20px;
   padding: 24px 20px;
   box-shadow: 0 16px 34px rgba(0, 0, 0, 0.28);
+}
+
+/* Banner menu giữ đúng tỉ lệ ảnh, không để ảnh kéo quá cao */
+.menu-banner-section {
+  max-width: 1100px;
+  margin-inline: auto;
+}
+
+.menu-carousel {
+  overflow: hidden;
+  border-radius: clamp(14px, 1.6vw, 20px);
+  background: #2d1b13;
+  box-shadow: 0 16px 36px rgba(75, 44, 32, 0.16);
+}
+
+.menu-carousel .carousel-inner,
+.menu-carousel .carousel-item {
+  width: 100%;
+  aspect-ratio: 1530 / 340;
+}
+
+.menu-carousel-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+  background: #2d1b13;
+}
+
+.menu-carousel .carousel-control-prev,
+.menu-carousel .carousel-control-next {
+  width: 44px;
+}
+
+.menu-carousel .carousel-control-prev-icon,
+.menu-carousel .carousel-control-next-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background-color: rgba(45, 27, 19, 0.58);
+  background-size: 44%;
 }
 
 body.dark .menu-title,
@@ -603,10 +583,8 @@ body.dark .menu-card p {
    TIÊU ĐỀ MENU (MENU GIBOR COFFEE)
 ========================================= */
 .menu-title {
-  text-align: center;
-  font-size: 32px;
+  font-size: clamp(1.5rem, 3vw, 2rem);
   color: #5a2d1a;
-  margin-bottom: 40px;
   letter-spacing: 2px;
 }
 
@@ -614,16 +592,17 @@ body.dark .menu-card p {
    MỖI NHÓM MENU (CÀ PHÊ / TRÀ / ...)
 ========================================= */
 .menu-section {
-  margin-bottom: 50px; /* Tách các nhóm menu ra */
+  margin-bottom: clamp(34px, 5vw, 56px);
+  /* Tách các nhóm menu ra */
 }
 
 /* =========================================
    TIÊU ĐỀ NHÓM (☕ CÀ PHÊ, 🍃 TRÀ...)
 ========================================= */
 .section-title {
-  font-size: 24px;
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
   color: #8b5e3c;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   border-left: 5px solid #c9a063;
   padding-left: 12px;
 }
@@ -632,9 +611,8 @@ body.dark .menu-card p {
    GRID CHỨA CÁC MÓN (CARD)
 ========================================= */
 .menu-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 25px;
+  --bs-gutter-x: 1rem;
+  --bs-gutter-y: 1rem;
 }
 
 /* =========================================
@@ -643,16 +621,40 @@ body.dark .menu-card p {
 .menu-card {
   background: #fff7f0;
   border-radius: 12px;
-  padding: 15px;
+  padding: 12px;
   text-align: center;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-  transition: 0.3s;
+  border: 1px solid rgba(194, 123, 67, 0.16);
+  display: flex;
+  flex-direction: column;
+  transform: translateY(0) translateZ(0);
+  transition:
+    transform 460ms var(--motion-ease-standard, cubic-bezier(0.22, 1, 0.36, 1)),
+    box-shadow 460ms var(--motion-ease-standard, cubic-bezier(0.22, 1, 0.36, 1)),
+    border-color 320ms var(--motion-ease-standard, cubic-bezier(0.22, 1, 0.36, 1)),
+    background-color 320ms var(--motion-ease-standard, cubic-bezier(0.22, 1, 0.36, 1));
   position: relative;
+  will-change: transform, box-shadow;
+  isolation: isolate;
 }
 
-/* Hiệu ứng khi rê chuột vào card */
-.menu-card:hover {
-  transform: translateY(-6px);
+.menu-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(160deg,
+      rgba(255, 255, 255, 0.22) 0%,
+      rgba(255, 255, 255, 0) 42%,
+      rgba(194, 123, 67, 0.08) 100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 420ms var(--motion-ease-standard, cubic-bezier(0.22, 1, 0.36, 1));
+}
+
+.menu-card>* {
+  position: relative;
+  z-index: 1;
 }
 
 /* =========================================
@@ -660,15 +662,17 @@ body.dark .menu-card p {
 ========================================= */
 .menu-card img {
   width: 100%;
-  height: 400px;
+  aspect-ratio: 1 / 1;
+  height: auto;
   object-fit: cover;
   border-radius: 10px;
-}
-
-/* Hiệu ứng khi rê chuột vào ảnh sản phẩm */
-.menu-card img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transform: translateZ(0) scale(1);
+  backface-visibility: hidden;
+  will-change: transform, filter;
+  transition:
+    transform 700ms var(--motion-ease-standard, cubic-bezier(0.22, 1, 0.36, 1)),
+    filter 420ms var(--motion-ease-standard, cubic-bezier(0.22, 1, 0.36, 1)),
+    box-shadow 420ms var(--motion-ease-standard, cubic-bezier(0.22, 1, 0.36, 1));
 }
 
 /* =========================================
@@ -677,15 +681,20 @@ body.dark .menu-card p {
 .menu-card h4 {
   margin: 12px 0 5px;
   color: #5a2d1a;
-  font-size: 18px;
+  font-size: clamp(0.9rem, 1.45vw, 1.05rem);
+  line-height: 1.35;
+  transition: color 300ms var(--motion-ease-standard, cubic-bezier(0.22, 1, 0.36, 1));
 }
 
 /* =========================================
    MÔ TẢ NGẮN
 ========================================= */
 .menu-card p {
-  font-size: 14px;
+  font-size: clamp(0.76rem, 1.1vw, 0.88rem);
+  line-height: 1.45;
   color: #777;
+  flex: 1 1 auto;
+  transition: color 300ms var(--motion-ease-standard, cubic-bezier(0.22, 1, 0.36, 1));
 }
 
 /* =========================================
@@ -696,6 +705,122 @@ body.dark .menu-card p {
   margin-top: 8px;
   font-weight: bold;
   color: #c27b43;
+  transition:
+    color 300ms var(--motion-ease-standard, cubic-bezier(0.22, 1, 0.36, 1)),
+    transform 300ms var(--motion-ease-standard, cubic-bezier(0.22, 1, 0.36, 1));
+}
+
+@media (max-width: 768px) {
+  .menu-page {
+    padding-bottom: 28px;
+  }
+
+  .menu-banner-section {
+    margin-bottom: 24px;
+  }
+
+  .menu-grid {
+    --bs-gutter-x: 0.75rem;
+    --bs-gutter-y: 0.75rem;
+  }
+
+  .menu-card {
+    padding: 10px;
+    border-radius: 12px;
+  }
+
+  .menu-card img {
+    border-radius: 9px;
+  }
+
+  .menu-card h4 {
+    margin: 9px 0 4px;
+  }
+
+  .menu-card p {
+    display: -webkit-box;
+    min-height: 2.8em;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .price {
+    font-size: 0.86rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-grid {
+    --bs-gutter-x: 0.65rem;
+    --bs-gutter-y: 0.75rem;
+  }
+
+  .menu-card {
+    padding: 8px;
+  }
+
+  .badge {
+    max-width: calc(100% - 16px);
+    font-size: 0.58rem;
+    padding: 4px 8px;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .menu-card:hover {
+    transform: translateY(-10px) scale(1.01);
+    box-shadow: 0 18px 36px rgba(58, 34, 22, 0.2);
+    border-color: rgba(194, 123, 67, 0.36);
+  }
+
+  .menu-card:hover::after {
+    opacity: 1;
+  }
+
+  .menu-card:hover img {
+    transform: translateZ(0) scale(1.06);
+    filter: saturate(1.08) contrast(1.03);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+  }
+
+  .menu-card:hover h4 {
+    color: #4a2b1c;
+  }
+
+  .menu-card:hover p {
+    color: #664a36;
+  }
+
+  .menu-card:hover .price {
+    color: #ad6b34;
+    transform: translateY(-1px);
+  }
+
+  body.dark .menu-card:hover {
+    border-color: rgba(240, 215, 189, 0.42);
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.45);
+  }
+
+  body.dark .menu-card:hover img {
+    filter: saturate(1.08) brightness(1.05) contrast(1.02);
+  }
+
+  body.dark .menu-card:hover h4 {
+    color: #ffe2c6;
+  }
+
+  body.dark .menu-card:hover p {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  body.dark .menu-card:hover .price {
+    color: #ffd2a8;
+  }
+}
+
+.menu-card:active {
+  transform: translateY(-3px) scale(0.998);
 }
 
 /* Nhãn dán best seller */
@@ -719,13 +844,13 @@ body.dark .menu-card p {
   opacity: 1;
   visibility: visible;
 
-  animation: bestSellerPulse 2.5s ease-in-out infinite;
+  animation: bestSellerPulse 3.2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
 }
 
 .badge .icon {
   font-size: 14px;
   display: inline-block;
-  animation: fireWiggle 1.5s infinite;
+  animation: fireWiggle 1.9s ease-in-out infinite;
 }
 
 /* Animation Best Seller */
@@ -734,10 +859,12 @@ body.dark .menu-card p {
     transform: rotate(-8deg) scale(1);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
   }
+
   50% {
-    transform: rotate(-8deg) scale(1.08);
-    box-shadow: 0 6px 14px rgba(255, 87, 34, 0.6);
+    transform: rotate(-8deg) scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 87, 34, 0.42);
   }
+
   100% {
     transform: rotate(-8deg) scale(1);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
@@ -746,17 +873,21 @@ body.dark .menu-card p {
 
 /* ANIMATION CHO IC0N*/
 @keyframes fireWiggle {
+
   0%,
   100% {
     transform: rotate(0deg);
   }
+
   25% {
     transform: rotate(-10deg);
   }
+
   75% {
     transform: rotate(10deg);
   }
 }
+
 /* 
 ========================================================================================
 
@@ -781,12 +912,10 @@ body.dark .menu-card p {
     right: 0;
     bottom: -1px;
     height: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(212, 163, 115, 0.55) 50%,
-      transparent 100%
-    );
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(212, 163, 115, 0.55) 50%,
+        transparent 100%);
     pointer-events: none;
   }
 
@@ -1008,8 +1137,12 @@ body.dark .menu-card p {
     padding: 72px 0 24px;
     color: #f3ece6;
     background:
-      radial-gradient(circle at 10% 10%, rgba(212, 163, 115, 0.2), transparent 42%),
-      radial-gradient(circle at 90% 0%, rgba(255, 255, 255, 0.08), transparent 28%),
+      radial-gradient(circle at 10% 10%,
+        rgba(212, 163, 115, 0.2),
+        transparent 42%),
+      radial-gradient(circle at 90% 0%,
+        rgba(255, 255, 255, 0.08),
+        transparent 28%),
       linear-gradient(160deg, #25160f 0%, #3a2418 45%, #4b2c20 100%);
     overflow: hidden;
   }
@@ -1021,12 +1154,10 @@ body.dark .menu-card p {
     right: 0;
     top: 0;
     height: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(212, 163, 115, 0.7) 50%,
-      transparent 100%
-    );
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(212, 163, 115, 0.7) 50%,
+        transparent 100%);
   }
 
   .footer-container {
